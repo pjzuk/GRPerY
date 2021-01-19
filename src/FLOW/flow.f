@@ -1,0 +1,39 @@
+
+C November 23, 2012
+      SUBROUTINE SET_LATTICE_SKEW(T,LATTICE)
+      USE LATTICE_BASE   ! LB(3)
+      USE LATTICE_SKEW
+      USE FORCE_PAR      ! GAMMA
+      IMPLICIT NONE
+      REAL*8 T,TMOD
+      REAL*8 LATTICE(3,3)  ! MM = METRIC MATRIX, LE = EIGENVALUS
+      REAL*8 TSHEAR,PI
+      SAVE TSHEAR,PI
+      LOGICAL :: INI=.TRUE.
+      SAVE INI
+
+      IF(INI) THEN      
+       INI=.FALSE.
+       PI=ACOS(-1.D0)
+      ENDIF
+
+      IF (GAMMA .NE. 0.0) THEN
+       TSHEAR=LB(1)/(LB(3)*GAMMA)
+      ENDIF
+      LATTICE=0.D0
+      LATTICE(1,1)=LB(1)
+      LATTICE(2,2)=LB(2)
+      LATTICE(3,3)=LB(3)
+
+      IF (GAMMA .NE. 0.0) THEN
+       TMOD=MOD(T,TSHEAR)
+       LATTICE(1,3)=LB(3)*TMOD*GAMMA
+      ELSE
+       LATTICE(1,3)=0.0
+      ENDIF 
+
+      LR = LATTICE
+
+      RETURN
+      END
+

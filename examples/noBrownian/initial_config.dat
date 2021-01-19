@@ -1,0 +1,7 @@
+4              number of spheres
+20 20 20       periodic box size
+0              initial time
+0 0 3 1.       configuration per particle x y z r
+2 0 3 1.
+4 0 3 1.
+6 0 3 1.

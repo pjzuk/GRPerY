@@ -1,0 +1,46 @@
+#
+NAME = main
+DIR= ./MAIN
+OBJFILEDIR = ../build/OFILES
+MODFILEDIR = ../build/MODFILES
+CPU = exe
+NAMEFUL = ../bin/GRPerY.$(CPU)
+FC = gfortran
+FFLAGS  = -O2 -fopenmp -c -ffpe-summary='none' -J$(MODFILEDIR)
+LD = gfortran
+LDFLAGS = -O2 -fopenmp -ffpe-summary='none' -J$(MODFILEDIR)
+LIBRARIES = 
+LIBS =  
+INCLUDES = -I$(OBJFILEDIR)
+FSRC =  TENSORS/modules_tensors.f \
+        HYDRO/modules_hydro.f \
+        LAPACK/lapblas_double_excerpts.f \
+        CONFIGURATION/modules_config.f \
+        FORCES/modules_force.f \
+        TENSORS/matrices.f \
+        TENSORS/tensors.f \
+        FLOW/flow.f \
+        CONFIGURATION/initial_conf.f \
+        HYDRO/per_GRPY_polyd.f \
+        FORCES/force.f \
+        STEPPER/stepper_Brown.f \
+        STEPPER/stepper_noBrown.f
+
+OBJECTS := $(notdir $(FSRC:.f=.obj))
+OBJECTSFULL := $(patsubst %,$(OBJFILEDIR)/%,$(notdir $(FSRC:.f=.obj)))
+VPATH := $(subst $() $(),:,$(subst /,,$(dir $(FSRC))))
+
+.PHONY: all clean
+
+%.obj: %.f
+	$(FC) $(FFLAGS) $(INCLUDES) -c $< -o $(OBJFILEDIR)/$@
+
+all: $(OBJECTS) $(DIR)/$(NAME).f
+	$(LD) -o $(NAMEFUL) $(LDFLAGS) $(OBJECTSFULL) $(LIBS) $(DIR)/$(NAME).f $(LIBRARIES)
+
+clean:
+	@rm -f $(NAMEFUL) $(OBJFILEDIR)/*.obj $(MODFILEDIR)/*.mod
+
+print-%  :
+	@echo $* = $($*)
+
