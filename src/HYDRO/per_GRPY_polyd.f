@@ -8,9 +8,9 @@ C QQ  5NNx5NN
 
       SUBROUTINE GRPERY_MOB(APP,APQ,AQQ,CONF,RADII,NN,LATTICE,EWS_ERR)
       IMPLICIT NONE
+      INTEGER NN
       REAL*8 APP(6*NN,6*NN),APQ(6*NN,5*NN),AQQ(5*NN,5*NN),ARR(6*NN,6*NN)
       REAL*8 CONF(3,NN),RADII(NN),LATTICE(3,3),EWS_ERR
-      INTEGER NN
 
       CALL GRPERY_INV_FRI(APP,APQ,AQQ,CONF,RADII,NN,LATTICE,EWS_ERR)
 
@@ -296,7 +296,7 @@ C***********************************************************
       REAL*8 R(3)
       REAL*8 RC(3),RL(3),RMIN(3),X(3),M(3),DMIN,D
       INTEGER I,M1,M2,M3
-
+      
       X=MATMUL(LI,R)
 
       X=MOD(X,1.D0)

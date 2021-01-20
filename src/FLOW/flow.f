@@ -8,7 +8,7 @@ C November 23, 2012
       REAL*8 T,TMOD
       REAL*8 LATTICE(3,3)  ! MM = METRIC MATRIX, LE = EIGENVALUS
       REAL*8 TSHEAR,PI
-      SAVE TSHEAR,PI
+      SAVE PI
       LOGICAL :: INI=.TRUE.
       SAVE INI
 
@@ -31,8 +31,6 @@ C November 23, 2012
       ELSE
        LATTICE(1,3)=0.0
       ENDIF 
-
-      LR = LATTICE
 
       RETURN
       END

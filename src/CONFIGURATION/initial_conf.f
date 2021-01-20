@@ -42,7 +42,7 @@ C***********************************************************
 
 C   CORRECTIONS FOR PERIOD
 
-      IF(R(3).GE.LB(3)) THEN
+      IF(R(3).GT.LB(3)) THEN
        R(3) = R(3) - LB(3)
        R(1) = MOD(R(1) - LB(3)*GAMMA*T,LB(1))
       ENDIF
@@ -51,13 +51,13 @@ C   CORRECTIONS FOR PERIOD
        R(1) = MOD(R(1) + LB(3)*GAMMA*T,LB(1))
       ENDIF
 
-      IF(R(1).GE.LB(1)) THEN
+      IF(R(1).GT.LB(1)) THEN
        R(1)=R(1)-LB(1)
       ELSE IF(R(1).LT.0) THEN
        R(1)=R(1)+LB(1)
       ENDIF
 
-      IF(R(2).GE.LB(2)) THEN
+      IF(R(2).GT.LB(2)) THEN
        R(2)=R(2)-LB(2)
       ELSE IF(R(2).LT.0) THEN
        R(2)=R(2)+LB(2)

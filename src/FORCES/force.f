@@ -52,14 +52,13 @@ C***********************************************************
       SUBROUTINE FORCE_LJ(R,F)
       USE FORCE_PAR   ! LJ_SIGMA, LJ_EPS 
       IMPLICIT NONE
-      REAL*8 R(3),F(6),T0(3),L0        ! radius
+      REAL*8 R(3),T0(3),L0,F(6)        
       INTEGER I,J
 
       T0=R
       L0=SQRT(SUM(T0**2))
       IF(L0.LE.LJ_CUT) THEN
        T0=T0/L0
-       IF(L0.LE..9D0) L0=.9D0  ! cut-off parameter CUT = .7D0        
        F(1:3) =
      *    +4.D0*LJ_EPS/LJ_SIGMA*(
      *      12.D0*(LJ_SIGMA/L0)**13
@@ -70,6 +69,8 @@ C***********************************************************
      *      12.D0*(LJ_SIGMA/L0)**13
      *     -6.D0*(LJ_SIGMA/L0)**7
      *     )*T0
+      ELSE
+       F=0.D0
       ENDIF
 
       RETURN

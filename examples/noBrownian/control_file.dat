@@ -3,7 +3,7 @@
 .FALSE. BROWN
 30      END TIME
 0.001   DT
-10      WRITE FREQUENCY
-0       LJ EPS
+5       WRITE FREQUENCY
+1       LJ EPS
 2       LJ SIGMA
 5       LJ CUT 

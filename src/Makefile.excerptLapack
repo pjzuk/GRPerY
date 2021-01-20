@@ -14,9 +14,9 @@ LIBS =
 INCLUDES = -I$(OBJFILEDIR)
 FSRC =  TENSORS/modules_tensors.f \
         HYDRO/modules_hydro.f \
-        LAPACK/lapblas_double_excerpts.f \
         CONFIGURATION/modules_config.f \
         FORCES/modules_force.f \
+        LAPACK/lapblas_double_excerpts.f \
         TENSORS/matrices.f \
         TENSORS/tensors.f \
         FLOW/flow.f \
