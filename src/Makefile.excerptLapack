@@ -6,9 +6,9 @@ MODFILEDIR = ../build/MODFILES
 CPU = exe
 NAMEFUL = ../bin/GRPerY.$(CPU)
 FC = gfortran
-FFLAGS  = -O2 -fopenmp -c -ffpe-summary='none' 
+FFLAGS  = -O2  -c  
 LD = gfortran
-LDFLAGS = -O2 -fopenmp -ffpe-summary='none' 
+LDFLAGS = -O2  
 LIBRARIES = 
 LIBS =  
 INCLUDES = -J$(MODFILEDIR) -I$(OBJFILEDIR)
