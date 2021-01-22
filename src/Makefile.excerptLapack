@@ -6,12 +6,12 @@ MODFILEDIR = ../build/MODFILES
 CPU = exe
 NAMEFUL = ../bin/GRPerY.$(CPU)
 FC = gfortran
-FFLAGS  = -O2 -fopenmp -c -ffpe-summary='none' -J$(MODFILEDIR)
+FFLAGS  = -O2 -fopenmp -c -ffpe-summary='none' 
 LD = gfortran
-LDFLAGS = -O2 -fopenmp -ffpe-summary='none' -J$(MODFILEDIR)
+LDFLAGS = -O2 -fopenmp -ffpe-summary='none' 
 LIBRARIES = 
 LIBS =  
-INCLUDES = -I$(OBJFILEDIR)
+INCLUDES = -J$(MODFILEDIR) -I$(OBJFILEDIR)
 FSRC =  TENSORS/modules_tensors.f \
         HYDRO/modules_hydro.f \
         CONFIGURATION/modules_config.f \
@@ -35,11 +35,14 @@ VPATH := $(subst $() $(),:,$(subst /,,$(dir $(FSRC))))
 %.obj: %.f
 	$(FC) $(FFLAGS) $(INCLUDES) -c $< -o $(OBJFILEDIR)/$@
 
-all: $(OBJECTS) $(DIR)/$(NAME).f
-	$(LD) -o $(NAMEFUL) $(LDFLAGS) $(OBJECTSFULL) $(LIBS) $(DIR)/$(NAME).f $(LIBRARIES)
+all: folders $(OBJECTS) $(DIR)/$(NAME).f
+	$(LD) -o $(NAMEFUL) $(LDFLAGS) $(OBJECTSFULL) $(INCLUDES) $(LIBS) $(DIR)/$(NAME).f $(LIBRARIES)
 
 clean:
 	@rm -f $(NAMEFUL) $(OBJFILEDIR)/*.obj $(MODFILEDIR)/*.mod
+
+folders:
+	mkdir -p $(OBJFILEDIR) $(MODFILEDIR) ../bin
 
 print-%  :
 	@echo $* = $($*)
