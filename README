@@ -71,14 +71,14 @@ GRPERY_MOB(APP,APQ,AQQ,CONF,RADII,NN,LATTICE,EWS_ERR)
 has the following arguments:
 
 APP – returns 6NN x 6NN component mobility matrix for transaltional and rotational coupling.
-      It is organizes with NN x NN blocks that are 6 x 6.
+      It is organized with NN x NN blocks that are 6 x 6.
       Each of the blocks contains
         mu_tt(3x3) mu_tr(3x3)
         mu_rt(3x3) mu_rr(3x3) 
       mobility matrix containing interactions between particles i and j. The i and j also denote block numbering.
       For example block 1:6,7:12 has couplings between particles with i=1 and j=2.
 APQ – returns 6NN x 5NN component mobility matrix for transaltional and rotational motion coupling with dipolar degrees of freedom.
-      It is organizes with NN x NN blocks that are 6 x 5. 
+      It is organized with NN x NN blocks that are 6 x 5. 
       Each of the blocks contains
         mu_td(3x5) 
         mu_rd(3x5) 
@@ -95,7 +95,7 @@ APQ – returns 6NN x 5NN component mobility matrix for transaltional and rotati
            Precise multipole method for calculating hydrodynamic interactions between spherical particles in the Stokes flow.
            Theoretical methods for micro scale viscous flows, pp.127-172. 
 AQQ – returns 5NNx5NN component mobility matrix for coupling of dipolar degrees of freedom.
-      It is organizes with NN x NN blocks that are 5 x 5.
+      It is organized with NN x NN blocks that are 5 x 5.
       Each of the blocks contains
       mu_dd(5x5)  
       mobility matrix containing interactions between particles i and j.  The i and j also denote block numbering. For example block 1:5,6:10 has couplings between particles with i=1 and j=2
