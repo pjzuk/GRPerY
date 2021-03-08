@@ -2038,7 +2038,7 @@ C INVERSE LATTICE
            RW=KN/DIST
            CALL CALC_EPSRR(t3EPSRR,RW)
            PEPSRR = -2.D0
-           PRE = (P/(4.D0*LV))/DIST
+           PRE = (P/(4.D0*LV))
      *           *EXP(-(DIST**2)*(SIG**2)/2.D0)
      *           *COS(SUM(R*KN))
            C2C = C2C + PEPSRR*t3EPSRR*PRE
