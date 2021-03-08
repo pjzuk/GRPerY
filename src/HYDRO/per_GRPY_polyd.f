@@ -621,7 +621,7 @@ C REAL LATTICE
           YY=DOT_PRODUCT(RN,RN)/SIG**2/2.D0
           IF(YY.LE.LOGERR) THEN
            DIST=SQRT( SUM(RN**2) )
-           CALL ROTNE_PRAGER_TT_IJ(A2A,RN,aaI,aaI)
+           CALL ROTNE_PRAGER_TT_IJ(A2A,RN,aaI,aaJ)
            A2A = A2A*ERFC(DIST/SIG/SQRT(2.D0))
            RW=RN/DIST
            CALL CALC_RR(RR,RW)
