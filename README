@@ -129,7 +129,7 @@ thus the translational mobility coefficient will return
 1 / (6 \pi \eta a) = 1 / (6 a)
 where a is particle radius.
 
-Other units are be specified by the program using the library. 
+Other units are specified by the program using the library. 
 In the exemplary implementation we have energy unit k_B T. 
 Such choice specifies the relation between length scale and time scale: a sphere with radius 0.5 will have a MSD(t) = 2 t.
 
