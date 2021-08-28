@@ -62,7 +62,7 @@ GRPerY/src/HYDRO/main.f
 It reads the input and contains main computational loop that invokes time integrating steps and writing the output. There are two Heun type integrating schemes: first without thermal motion
 GRPerY/src/STEPPER/stepper_noBrown.f
 and second with Brownian motion
-GRPerY/src/STEPPER/stepper_noBrown.f
+GRPerY/src/STEPPER/stepper_Brown.f
 In those steppers the procedure calculating the hydrodynamic mobility matrix
 GRPERY_MOB(APP,APQ,AQQ,CONF,RADII,NN,LATTICE,EWS_ERR)
 is invoked and used for calculating displacements for time integration.
