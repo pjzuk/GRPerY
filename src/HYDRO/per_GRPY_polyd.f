@@ -86,9 +86,9 @@ C***********************************************************
         CALL PER_ROTNE_PRAGER_RD_IJ_Y2(C1PQ,R,aaI,aaJ)
         A1PQ(4:6,1:5) = C1PQ
         APQ(6*(I-1)+1:6*(I-1)+6,5*(J-1)+1:5*(J-1)+5) = A1PQ
-        CALL PER_ROTNE_PRAGER_TD_IJ_Y2(C1PQ,-R,aaI,aaJ)
+        CALL PER_ROTNE_PRAGER_TD_IJ_Y2(C1PQ,-R,aaJ,aaI)
         A1PQ(1:3,1:5) = C1PQ
-        CALL PER_ROTNE_PRAGER_RD_IJ_Y2(C1PQ,-R,aaI,aaJ)
+        CALL PER_ROTNE_PRAGER_RD_IJ_Y2(C1PQ,-R,aaJ,aaI)
         A1PQ(4:6,1:5) = C1PQ
         APQ(6*(J-1)+1:6*(J-1)+6,5*(I-1)+1:5*(I-1)+5) = A1PQ
 
